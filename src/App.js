@@ -1,5 +1,4 @@
 import "./App.css";
-//import Header from "./Header";
 import Create from "./Component/Create";
 import Read from "./Component/Read";
 import Update from "./Component/Update";
