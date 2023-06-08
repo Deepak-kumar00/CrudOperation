@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Create() {
@@ -55,6 +55,9 @@ export default function Create() {
         <button onClick={handleSubmit} type="submit" className="btn btn-primary">
           Submit
         </button>
+        <Link to="/Read"><button className="btn btn-success mx-3">
+          ShowData
+        </button></Link>
       </form>
     </div>
   );

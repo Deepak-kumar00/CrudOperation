@@ -7,6 +7,12 @@ export default function Read() {
   const url = "https://6480cefbf061e6ec4d49e690.mockapi.io/crud-practice";
   const [data, setData] = useState([]);
 
+  const setToLocalStorage = (id, name, email) =>{
+    localStorage.setItem("id",id)
+    localStorage.setItem("name",name)
+    localStorage.setItem("email",email)
+  }
+
   function getData() {
     axios.get(url).then((res) => {
       console.log(res.data);
@@ -26,8 +32,14 @@ export default function Read() {
 
   
   return (
+
     <div className="container my-3">
-      <h2>Read Operation</h2>
+      <div className="d-flex justify-content-between m2">
+        <h2>Read Operation</h2>
+      <Link to="/"><button className="btn btn-success mx-3">
+        AddData
+      </button></Link>
+      </div>
       <table className="table">
         <thead>
           <tr>
@@ -47,7 +59,7 @@ export default function Read() {
                   <td>{ eachData.name }</td>
                   <td>{ eachData.email }</td>
                   <td>
-                    <Link to="/Update"><button className="btn btn-success">Edit</button></Link>
+                    <Link to="/Update"><button onClick={()=>setToLocalStorage(eachData.id, eachData.name, eachData.email)} className="btn btn-success">Edit</button></Link>
                   </td>
                   <td>
                     <button className="btn btn-danger" onClick={()=>handleDelete(eachData.id)}>Delete</button>
